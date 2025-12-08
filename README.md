@@ -1,16 +1,49 @@
-# React + Vite
+# TanStack Query Learning Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains my practice code and notes while learning **TanStack Query (React Query)**.  
+The goal is to understand data fetching, caching, mutations, and integration with APIs in React.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+- React.js 
+- JavaScript
+- **TanStack Query (React Query)**
+- Axios 
+- Vite 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📦 Setup & Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Clone repository
+git clone https://github.com/AnujGawade/TanStack-Query.git
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+
+🔥 What I'm Learning
+
+ 1. Basic Query (useQuery)
+ 2. Fetching API data
+ 3. Query invalidation
+ 4. Mutations (useMutation)
+ 5. Query caching & refetching
+ 6. Infinite queries / Pagination
+ 7.Devtools
+
+📂 Project Structure
+src/
+  ├── api/          # API methods using axios or fetch
+  ├── components/   # UI components
+  ├── hooks/        # Custom query hooks (optional)
+  ├── pages/        # Page components
+  ├── App.jsx/tsx
+  └── main.jsx/tsx
+
