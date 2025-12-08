@@ -38,12 +38,4 @@ npm run dev
  6. Infinite queries / Pagination
  7.Devtools
 
-📂 Project Structure
-src/
-  ├── api/          # API methods using axios or fetch
-  ├── components/   # UI components
-  ├── hooks/        # Custom query hooks (optional)
-  ├── pages/        # Page components
-  ├── App.jsx/tsx
-  └── main.jsx/tsx
 
