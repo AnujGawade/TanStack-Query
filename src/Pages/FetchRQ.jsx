@@ -14,6 +14,8 @@ const FetchRQ = () => {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['posts'], // useState
     queryFn: getPostsData, // useEffect
+    // gcTime: 1000,
+    staleTime: 10000,
   });
 
   if (isPending) return <p>Loading .....</p>;
