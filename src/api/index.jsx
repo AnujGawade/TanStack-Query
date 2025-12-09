@@ -6,5 +6,5 @@ const api = axios.create({
 
 // to fetch the data
 export const fetchPosts = () => {
-  return api.get('/posts');
+  return api.get('/posts?_start=06_limit=3');
 };
