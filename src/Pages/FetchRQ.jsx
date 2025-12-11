@@ -1,21 +1,20 @@
+import { NavLink } from 'react-router-dom';
 import { fetchPosts } from '../api';
-import { useQuery } from '@tanstack/react-query';
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 
 const FetchRQ = () => {
-  const getPostsData = async () => {
-    try {
-      const res = await fetchPosts();
-      return res.status === 200 ? res.data : [];
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [page, setPage] = useState(0);
 
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ['posts'], // useState
-    queryFn: getPostsData, // useEffect
-    // gcTime: 1000,
-    staleTime: 10000,
+    queryKey: ['posts', page], // useState
+    queryFn: () => fetchPosts(page), // useEffect
+    placeholderData: keepPreviousData,
+
+    // // gcTime: 1000,
+    // // staleTime: 10000,
+    // refetchInterval: 1000,
+    // refetchIntervalInBackground: true,
   });
 
   if (isPending) return <p>Loading .....</p>;
@@ -27,12 +26,25 @@ const FetchRQ = () => {
         {data?.map((curElem) => {
           return (
             <li key={curElem.id}>
-              <p>{curElem.title}</p>
-              <p>{curElem.body}</p>
+              <NavLink to={`/rq/${curElem.id}`}>
+                <p>{curElem.id}</p>
+                <p>{curElem.title}</p>
+                <p>{curElem.body}</p>
+              </NavLink>
             </li>
           );
         })}
       </ul>
+      <div className="pagination-section container">
+        <button
+          disabled={page === 0 ? true : false}
+          onClick={() => setPage((prev) => prev - 3)}
+        >
+          Prev
+        </button>
+        <h2>{page / 3 + 1}</h2>
+        <button onClick={() => setPage((prev) => prev + 3)}>Next</button>
+      </div>
     </div>
   );
 };

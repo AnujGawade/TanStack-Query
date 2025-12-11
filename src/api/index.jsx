@@ -5,6 +5,22 @@ const api = axios.create({
 });
 
 // to fetch the data
-export const fetchPosts = () => {
-  return api.get('/posts?_start=06_limit=3');
+export const fetchPosts = async (page) => {
+  try {
+    const res = await api.get(`/posts?_start=${page}&_limit=3`);
+    console.log(res);
+    return res.status === 200 ? res.data : [];
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// to fetch indv data
+export const fetchInvost = async (id) => {
+  try {
+    const res = await api.get(`/posts/${id}`);
+    return res.status === 200 ? res.data : [];
+  } catch (error) {
+    console.log(error);
+  }
 };
